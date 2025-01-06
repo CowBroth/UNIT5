@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    Vector3[] targetPos;
-
     public Vector3 mPos;
     public Vector3 vel = Vector3.zero;
     Quaternion a;
@@ -12,6 +10,10 @@ public class CameraScript : MonoBehaviour
     public float goTo = 0;
     float goTime = 0.2f;
 
+    public Vector3 target1 = new Vector3(0, 1, -10); 
+    public Vector3 target2 = new Vector3(-2, -0.5f, -2.4f);
+    public Vector3 target3 = new Vector3(1.9f, -1.2f, -5);
+    //camera offset to target should be: X/0 Y/-0.3 Z/1.7
     float screenWidth;
     float screenHeight;
     float mouseX;
@@ -19,7 +21,6 @@ public class CameraScript : MonoBehaviour
 
     private void Start()
     {
-        targetPos = new Vector3[]{new Vector3(0, 1, -10), new Vector3(-2, -0.5f, -2.4f), new Vector3(1.9f, -1.2f, -5)};
         screenWidth = Screen.width;
         screenHeight = Screen.height;
     }
@@ -56,15 +57,15 @@ public class CameraScript : MonoBehaviour
 
         if (goTo == 0)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos[0], ref vel, goTime);
+            transform.position = Vector3.SmoothDamp(transform.position, target1, ref vel, goTime);
         }
         if (goTo == 1)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos[1], ref vel, goTime);
+            transform.position = Vector3.SmoothDamp(transform.position, target2, ref vel, goTime);
         }
         if (goTo == 2)
         {
-            transform.position = Vector3.SmoothDamp(transform.position, targetPos[2], ref vel, goTime);
+            transform.position = Vector3.SmoothDamp(transform.position, target3, ref vel, goTime);
         }
     }
     public void ButtonVar(int q)
