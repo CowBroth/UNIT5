@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour
     Quaternion b;
     private float t = 0.01f;
     public float goTo = 0;
-    float goTime = 0.2f;
+    float goTime = 0.15f;
 
     public Vector3 target1 = new Vector3(0, 1, -10); 
     public Vector3 target2 = new Vector3(-2, -0.5f, -2.4f);
